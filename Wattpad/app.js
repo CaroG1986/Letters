@@ -21,6 +21,232 @@ const SNIPPETS = [
   'Pasa la página, la letra está cerca.'
 ];
 
+/* ==========================================================================
+   TEXTOS CENTRALIZADOS DE LAS PÁGINAS (FÁCIL EDICIÓN)
+   --------------------------------------------------------------------------
+   Edita aquí los textos de cada libro y página:
+   - leftPage:
+       • chapter: Encabezado superior (por ej. 'Romance · Capítulo I')
+       • title: Título en la página izquierda
+       • lines: Arreglo de renglones del cuerpo de la página izquierda
+   - rightPages:
+       • [númeroDePágina]:
+           - heading: Subtítulo ('Sigue leyendo')
+           - text: Texto o arreglo de renglones para la página derecha
+       (Nota: La página que coincide con 'revealPage' contiene la interacción/letra)
+   ========================================================================== */
+const DEFAULT_LEFT_PAGE_LINES = [
+  'Las palabras escritas guardan el eco',
+  'de mil voces que buscan conectar.',
+  'Cada capítulo es una puerta abierta',
+  'hacia una nueva perspectiva.',
+  '',
+  'Navega entre páginas para hallar',
+  'la letra escondida en esta voz.'
+];
+
+const BOOK_TEXTS = {
+  // Libro 0: 'W' · Romance
+  0: {
+    leftPage: {
+      chapter: 'Romance · Capítulo I',
+      title: 'Ecos del Alma',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'W' (Interacción: La hipótesis del amor / Une dos puntos)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 1: 'A' · Fantasía
+  1: {
+    leftPage: {
+      chapter: 'Fantasía · Capítulo I',
+      title: 'Runic Horizon',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'A' (Interacción: El príncipe cruel / Elige un sello)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 2: 'T' · Misterio (4 páginas en total)
+  2: {
+    leftPage: {
+      chapter: 'Misterio · Capítulo I',
+      title: 'Reloj de Arena',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      2: {
+        heading: 'Sigue leyendo',
+        text: 'Sigue leyendo: algo se esconde entre las líneas.'
+      },
+      // Página 3: Revelación de la letra 'T' (Interacción: Damián / Sombra)
+      4: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 3: 'T' · Sci-Fi
+  3: {
+    leftPage: {
+      chapter: 'Sci-Fi · Capítulo I',
+      title: 'Nebula 09',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'T' (Interacción: La teoría de Kim / Línea de tiempo)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 4: 'P' · Aventura
+  4: {
+    leftPage: {
+      chapter: 'Aventura · Capítulo I',
+      title: 'La Cima Perdida',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'P' (Interacción: A oscuras / Halo de luz)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 5: 'A' · Drama
+  5: {
+    leftPage: {
+      chapter: 'Drama · Capítulo I',
+      title: 'El Gran Guion',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'A' (Interacción: Culpa mía / Tacómetro)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  },
+
+  // Libro 6: 'D' · Poesía
+  6: {
+    leftPage: {
+      chapter: 'Poesía · Capítulo I',
+      title: 'Tinta & Verso',
+      lines: [
+        'Las palabras escritas guardan el eco',
+        'de mil voces que buscan conectar.',
+        'Cada capítulo es una puerta abierta',
+        'hacia una nueva perspectiva.',
+        '',
+        'Navega entre páginas para hallar',
+        'la letra escondida en esta voz.'
+      ]
+    },
+    rightPages: {
+      1: {
+        heading: 'Sigue leyendo',
+        text: 'Cada historia empieza con una sola palabra.'
+      },
+      // Página 2: Revelación de la letra 'D' (Interacción: Fabricante de lágrimas / Lágrima)
+      3: {
+        heading: 'Sigue leyendo',
+        text: 'Pasa la página, la letra está cerca.'
+      }
+    }
+  }
+};
+
 const BW = 0.85, BH = 1.25, BT = 0.22;   // ancho, alto y grosor del libro
 const PW = 512, PH = 712;                // tamaño de las texturas de página
 const SERIF = 'Fraunces, Georgia, serif';
@@ -137,21 +363,23 @@ function paintPaper(ctx, gutter) {
 
 function paintLeftPage(ctx, data) {
   paintPaper(ctx, 'right');             // se verá por detrás, así que el lomo queda a la derecha del canvas
+  const bookText = BOOK_TEXTS[data.id]?.leftPage;
+  const chapterText = bookText?.chapter ?? `${data.genre} · Capítulo I`;
+  const titleText = bookText?.title ?? data.title;
+  const lines = bookText?.lines ?? DEFAULT_LEFT_PAGE_LINES;
+
   ctx.textAlign = 'left';
   ctx.fillStyle = '#b4540a';
   ctx.font = `italic 400 22px ${SERIF}`;
-  ctx.fillText(`${data.genre} · Capítulo I`, 60, 100);
+  ctx.fillText(chapterText, 60, 100);
   ctx.fillStyle = '#1e1a24';
   ctx.font = `800 44px ${SERIF}`;
-  ctx.fillText(data.title, 60, 160);
+  ctx.fillText(titleText, 60, 160);
   ctx.fillStyle = '#ff6600';
   ctx.fillRect(60, 188, 56, 4);
   ctx.fillStyle = '#4a4352';
   ctx.font = `400 21px ${SERIF}`;
-  ['Las palabras escritas guardan el eco', 'de mil voces que buscan conectar.',
-   'Cada capítulo es una puerta abierta', 'hacia una nueva perspectiva.', '',
-   'Navega entre páginas para hallar', 'la letra escondida en esta voz.']
-    .forEach((l, i) => ctx.fillText(l, 60, 250 + i * 34));
+  lines.forEach((l, i) => ctx.fillText(l, 60, 250 + i * 34));
 }
 
 function createPageMesh(data, side) {
@@ -198,13 +426,22 @@ function updateRightPageTexture(bookPivot, pageNum) {
   } else {
     paintLeftPage(leftPageMesh.userData.ctx, data);   // al volver desde la página especial se recupera el texto
     leftPageMesh.userData.texture.needsUpdate = true;
+
+    const pageText = BOOK_TEXTS[data.id]?.rightPages?.[pageNum];
+    const heading = pageText?.heading ?? 'Sigue leyendo';
+    const bodyContent = pageText?.text ?? SNIPPETS[(pageNum - 1) % SNIPPETS.length];
+
     ctx.textAlign = 'left';
     ctx.fillStyle = '#1e1a24';
     ctx.font = `600 30px ${SERIF}`;
-    ctx.fillText('Sigue leyendo', 60, 120);
+    ctx.fillText(heading, 60, 120);
     ctx.fillStyle = '#4a4352';
     ctx.font = `400 21px ${SERIF}`;
-    ctx.fillText(SNIPPETS[(pageNum - 1) % SNIPPETS.length], 60, 180);
+    if (Array.isArray(bodyContent)) {
+      bodyContent.forEach((l, i) => ctx.fillText(l, 60, 180 + i * 32));
+    } else {
+      ctx.fillText(bodyContent, 60, 180);
+    }
     ctx.textAlign = 'center';
     ctx.fillStyle = '#9a90a6';
     ctx.font = `500 18px ${SANS}`;

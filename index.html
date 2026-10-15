@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wattpad 3D · Historias vivas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,400&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script defer src="interacciones.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <div id="stage" role="img" aria-label="Siete libros sobre una superficie blanca"></div>
+
+  <!-- Controles del lector (visibles solo con un libro abierto) -->
+  <div class="reader">
+    <button id="btn-close" class="back" type="button">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      Volver a la mesa
+    </button>
+    <button id="btn-prev" class="arrow" type="button" aria-label="Página anterior">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <button id="btn-next" class="arrow" type="button" aria-label="Página siguiente">
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <!-- Gran final -->
+  <div id="finale" class="finale">
+    <h2 class="word" aria-label="Wattpad"><span>W</span><span>A</span><span>T</span><span>T</span><span>P</span><span>A</span><span>D</span></h2>
+    <p class="slogan">donde las historias viven</p>
+    <button id="btn-reset" class="btn restart" type="button">Volver a empezar</button>
+  </div>
+
+</body>
+</html>
