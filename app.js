@@ -143,7 +143,7 @@ const BOOK_TEXTS = {
   3: {
     leftPage: {
       chapter: 'Sci-Fi · Capítulo I',
-      title: 'Nebula 09',
+      title: ['La teoría de', 'Kim'],
       lines: [
         'Las palabras escritas guardan el eco',
         'de mil voces que buscan conectar.',
