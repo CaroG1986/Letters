@@ -6,13 +6,13 @@
 const WORD = 'WATTPAD'.split('');
 
 const BOOKS_DATA = [
-  { id: 0, cover: 'portadas/1', letter: 'W', title: 'Ecos del Alma',   genre: 'Romance',  color: 0xE11D48, totalPages: 3, revealPage: 2 },
-  { id: 1, cover: 'portadas/2', letter: 'A', title: 'Runic Horizon',   genre: 'Fantasía', color: 0x7C3AED, totalPages: 3, revealPage: 2 },
-  { id: 2, cover: 'portadas/3', letter: 'T', title: 'Reloj de Arena',  genre: 'Misterio', color: 0xD97706, totalPages: 4, revealPage: 3 },
-  { id: 3, cover: 'portadas/4', letter: 'T', title: 'Nebula 09',       genre: 'Sci-Fi',   color: 0x0284C7, totalPages: 3, revealPage: 2 },
+  { id: 0, cover: 'portadas/1', letter: 'W', title: 'Ecos del Alma', genre: 'Romance', color: 0xE11D48, totalPages: 3, revealPage: 2 },
+  { id: 1, cover: 'portadas/2', letter: 'A', title: 'Runic Horizon', genre: 'Fantasía', color: 0x7C3AED, totalPages: 3, revealPage: 2 },
+  { id: 2, cover: 'portadas/3', letter: 'T', title: 'Reloj de Arena', genre: 'Misterio', color: 0xD97706, totalPages: 4, revealPage: 3 },
+  { id: 3, cover: 'portadas/4', letter: 'T', title: 'Nebula 09', genre: 'Sci-Fi', color: 0x0284C7, totalPages: 3, revealPage: 2 },
   { id: 4, cover: 'portadas/5', letter: 'P', title: 'La Cima Perdida', genre: 'Aventura', color: 0x059669, totalPages: 3, revealPage: 2 },
-  { id: 5, cover: 'portadas/6', letter: 'A', title: 'El Gran Guion',   genre: 'Drama',    color: 0xEA580C, totalPages: 3, revealPage: 2 },
-  { id: 6, cover: 'portadas/7', letter: 'D', title: 'Tinta & Verso',   genre: 'Poesía',   color: 0x0D9488, totalPages: 3, revealPage: 2 }
+  { id: 5, cover: 'portadas/6', letter: 'A', title: 'El Gran Guion', genre: 'Drama', color: 0xEA580C, totalPages: 3, revealPage: 2 },
+  { id: 6, cover: 'portadas/7', letter: 'D', title: 'Tinta & Verso', genre: 'Poesía', color: 0x0D9488, totalPages: 3, revealPage: 2 }
 ];
 
 const SNIPPETS = [
@@ -50,15 +50,15 @@ const BOOK_TEXTS = {
   0: {
     leftPage: {
       chapter: 'Romance · Capítulo I',
-      title: 'Ecos del Alma',
+      title: 'La hipótesis del amor',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
-        '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Olive Smith, una doctoranda que',
+        'no cree en el amor duradero,',
+        'finge tener una relación con Adam Carlsen,',
+        'un profesor brillante pero de carácter difícil,',
+        'para ayudar a su mejor amiga.',
+        'Pero lo que comienza como un acuerdo, pronto se complica',
+        'con citas inesperadas y una conexión que ninguno de ellos esperaba.'
       ]
     },
     rightPages: {
