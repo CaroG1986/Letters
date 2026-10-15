@@ -50,7 +50,8 @@ const BOOK_TEXTS = {
   0: {
     leftPage: {
       chapter: 'Romance · Capítulo I',
-      title: 'La hipótesis del amor',
+      title: ['La hipótesis del ',
+        'amor',],
       lines: [
         'Olive Smith, una doctoranda que',
         'no cree en el amor duradero,',
@@ -78,15 +79,19 @@ const BOOK_TEXTS = {
   1: {
     leftPage: {
       chapter: 'Fantasía · Capítulo I',
-      title: 'Runic Horizon',
+      title: 'El principe cruel',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
+        'Jude, una humana criada en la peligrosa',
+        'Corte Feérica tras el asesinato de sus padres,',
+        'desea demostrar que merece',
+        'pertenecer a ese mundo.',
         '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Cuando el príncipe cruel Cardan',
+        'es nombrado heredero al trono,',
+        'Jude se ve envuelta en una red',
+        'de intrigas palaciegas y traiciones',
+        'donde su ingenio y valentía serán',
+        'su única defensa.'
       ]
     },
     rightPages: {
@@ -106,15 +111,15 @@ const BOOK_TEXTS = {
   2: {
     leftPage: {
       chapter: 'Misterio · Capítulo I',
-      title: 'Reloj de Arena',
+      title: 'Damián',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
-        '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Padme lleva una vida aparentemente normal',
+        'en Asfil, pero siempre ha sentido',
+        'curiosidad por su misterioso vecino.',
+        'Damián. Cuando él desaparece y regresa meses',
+        'después, Padme decide seguirlo y descubre',
+        'los oscuros secretos que tanto él',
+        'como el pueblo han intentado ocultar.',
       ]
     },
     rightPages: {
