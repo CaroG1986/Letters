@@ -775,6 +775,10 @@ function onPointerClick(e) {
 }
 
 function onKeyDown(e) {
+  if (e.key === 'f' || e.key === 'F') {
+    toggleFullscreen();
+    return;
+  }
   if (!state.isReaderOpen) return;
   if (e.key === 'ArrowRight') nextBookPage();
   if (e.key === 'ArrowLeft') prevBookPage();
@@ -869,6 +873,96 @@ function animateLoop() {
 }
 
 /* ==========================================================================
+   PANTALLA COMPLETA
+   ========================================================================== */
+function isFullscreenActive() {
+  return Boolean(
+    document.fullscreenElement ||
+    document.webkitFullscreenElement ||
+    document.mozFullScreenElement ||
+    document.msFullscreenElement
+  );
+}
+
+function requestFullscreen() {
+  const elem = document.documentElement;
+  const fn = elem.requestFullscreen ||
+             elem.webkitRequestFullscreen ||
+             elem.mozRequestFullScreen ||
+             elem.msRequestFullscreen;
+  if (fn && !isFullscreenActive()) {
+    return fn.call(elem).catch(() => {
+      // Ignorado silenciosamente si el navegador requiere interacción del usuario
+    });
+  }
+  return Promise.resolve();
+}
+
+function exitFullscreen() {
+  const fn = document.exitFullscreen ||
+             document.webkitExitFullscreen ||
+             document.mozCancelFullScreen ||
+             document.msExitFullscreen;
+  if (fn && isFullscreenActive()) {
+    return fn.call(document).catch(() => {});
+  }
+  return Promise.resolve();
+}
+
+function toggleFullscreen() {
+  if (isFullscreenActive()) {
+    exitFullscreen();
+  } else {
+    requestFullscreen();
+  }
+}
+
+function updateFullscreenUI() {
+  const active = isFullscreenActive();
+  document.body.classList.toggle('is-fullscreen', active);
+  const btn = $('btn-fullscreen');
+  if (btn) {
+    const label = active ? 'Salir de pantalla completa (F)' : 'Pantalla completa (F)';
+    btn.setAttribute('aria-label', label);
+    btn.title = label;
+  }
+}
+
+let hasAutoTriggeredFullscreen = false;
+
+function initFullscreen() {
+  const btn = $('btn-fullscreen');
+  if (btn) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleFullscreen();
+    });
+  }
+
+  ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange', 'MSFullscreenChange'].forEach((ev) => {
+    document.addEventListener(ev, updateFullscreenUI);
+  });
+
+  // 1. Intento inmediato al cargar la página
+  requestFullscreen();
+
+  // 2. Activación automática en la primera interacción (clic, toque o teclado)
+  const onFirstInteraction = () => {
+    if (!hasAutoTriggeredFullscreen && !isFullscreenActive()) {
+      hasAutoTriggeredFullscreen = true;
+      requestFullscreen();
+    }
+    ['pointerdown', 'touchstart', 'keydown'].forEach((ev) => {
+      window.removeEventListener(ev, onFirstInteraction, true);
+    });
+  };
+
+  ['pointerdown', 'touchstart', 'keydown'].forEach((ev) => {
+    window.addEventListener(ev, onFirstInteraction, { capture: true, once: true });
+  });
+}
+
+/* ==========================================================================
    9. ARRANQUE
    ========================================================================== */
 async function start() {
@@ -881,6 +975,7 @@ async function start() {
   } catch (_) { /* se usan las tipografías de respaldo */ }
 
   initThreeScene();
+  initFullscreen();
 
   $('btn-prev').addEventListener('click', prevBookPage);
   $('btn-next').addEventListener('click', nextBookPage);
