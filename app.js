@@ -50,8 +50,10 @@ const BOOK_TEXTS = {
   0: {
     leftPage: {
       chapter: 'Romance · Capítulo I',
-      title: ['La hipótesis del ',
-        'amor',],
+      title: [
+        'La hipótesis del ',
+        'amor'
+      ],
       lines: [
         'Olive Smith, una doctoranda que',
         'no cree en el amor duradero,',
@@ -143,15 +145,19 @@ const BOOK_TEXTS = {
   3: {
     leftPage: {
       chapter: 'Sci-Fi · Capítulo I',
-      title: ['La teoría de', 'Kim'],
+      title: [
+        'La teoría de',
+        'Kim'
+      ],
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
+        'La noche del primero de agosto',
+        'en que Taylor Kim se atrevió a explorar',
+        'la extraña constucción a la orrilla ',
+        'del lago concidió con el día de 2019',
+        'cuando Han Danko desapareció al caer',
+        'en las profundidades de sus aguas.',
         '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Bienvenidos al condado Mariposa, esto es 1986',
       ]
     },
     rightPages: {
@@ -171,15 +177,12 @@ const BOOK_TEXTS = {
   4: {
     leftPage: {
       chapter: 'Aventura · Capítulo I',
-      title: 'La Cima Perdida',
+      title: 'A oscuras',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
         '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        '',
+        '',
+        ''
       ]
     },
     rightPages: {
@@ -199,15 +202,17 @@ const BOOK_TEXTS = {
   5: {
     leftPage: {
       chapter: 'Drama · Capítulo I',
-      title: 'El Gran Guion',
+      title: 'Culpa mía',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
+        'Noah se muda a la mansión del nuevo marido',
+        'de su madre, donde conoce a Nick',
+        'su rebelde hermanastro.',
         'hacia una nueva perspectiva.',
         '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Aunque al principio chocan, la tensión',
+        'y la atracción entre ambos los llevan',
+        'a vivir una relación prohibida.'
+
       ]
     },
     rightPages: {
@@ -227,15 +232,15 @@ const BOOK_TEXTS = {
   6: {
     leftPage: {
       chapter: 'Poesía · Capítulo I',
-      title: 'Tinta & Verso',
+      title: 'Frabicante de lagrimas',
       lines: [
-        'Las palabras escritas guardan el eco',
-        'de mil voces que buscan conectar.',
-        'Cada capítulo es una puerta abierta',
-        'hacia una nueva perspectiva.',
+        'Nica creció en un orfanato rodeada de leyendas',
+        'incluida la del misterioso ',
+        'fabricante de lágrimas.',
         '',
-        'Navega entre páginas para hallar',
-        'la letra escondida en esta voz.'
+        'Cuando es adoptada junto a Rigel,',
+        'un chico enigmático, ambos deberán',
+        'enfrentarse a los secretos de su pasado.'
       ]
     },
     rightPages: {
